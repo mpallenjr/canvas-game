@@ -131,8 +131,12 @@ projectile.x - enemy.x,
 projectile.y - enemy.y)
 
 if (dist - enemy.radius - projectile.radius < 1) {
-  enemies.splice(index, 1)
-  projectiles.splice(projectileIndex, 1)
+  setTimeout(() => {
+    enemies.splice(index, 1)
+    projectiles.splice(projectileIndex, 1)
+
+  }, 0)
+  
 } 
   });
 
