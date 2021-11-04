@@ -86,7 +86,7 @@ function spawnEnemies() {
   setInterval(() => {
     const radius = 30
     const x = Math.random() < 0.5 ? 0 - radius : canvas.width + radius
-    const y = Math.random() * canvas.height
+    const y = Math.random() < 0.5 ? 0 - radius : canvas.height + radius
     
     const color = 'green'
     const angle = Math.atan2(
