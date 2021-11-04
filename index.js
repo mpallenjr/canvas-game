@@ -106,6 +106,11 @@ function animate() {
 projectiles.forEach((projectile) => { 
   projectile.update()
 })
+
+enemies.forEach(enemy => {
+  enemy.update()
+})
+  
 }
 
 addEventListener('click', (event) => {
