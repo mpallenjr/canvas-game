@@ -87,7 +87,7 @@ class Enemy {
     }
     draw() {
       c.save()
-      c.globalAlpha = 0.1
+      c.globalAlpha = this.alpha
       c.beginPath()
       c.arc(this.x, this.y, this.radius, 0,Math.PI * 2, false)
       c.fillStyle = this.color
@@ -97,8 +97,8 @@ class Enemy {
     update() {
       this.draw()
     this.x = this.x + this.velocity.x
-    
     this.y = this.y + this.velocity.y
+    this.alpha -= 0.01
     }
     
     }
