@@ -149,7 +149,12 @@ function animate() {
   c.fillStyle = 'rgba(0,0,0,0.1)' 
   c.fillRect(0, 0, canvas.width, canvas.height)
   player.draw()
-  particles.forEach(particle => { 
+  particles.forEach((particle, index) => { 
+    if (particle.alpha <= 0) {
+      particles.splice(index, 1)
+    } else{
+      particle.update()
+    }
     particle.update()
   })
 projectiles.forEach((projectile, index) => { 
