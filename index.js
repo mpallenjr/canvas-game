@@ -193,7 +193,7 @@ projectile.y - enemy.y)
 if (dist - enemy.radius - projectile.radius < 1) 
   { // where particles will go
     for (let i = 0; i < enemy.radius * 2; i++) {
-      particles.push(new Particle(projectile.x, projectile.y, Math.random() * 2, enemy.color, {x: Math.random() - 0.5, y: Math.random() - 0.5}))
+      particles.push(new Particle(projectile.x, projectile.y, Math.random() * 2, enemy.color, {x: (Math.random() - 0.5) * (Math.random() * 8), y: (Math.random() - 0.5) * (Math.random() * 8)}))
     }
   if (enemy.radius - 10 > 6) {
     gsap.to(enemy, {
