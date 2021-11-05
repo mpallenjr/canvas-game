@@ -74,7 +74,7 @@ class Enemy {
   
   }
   
-const friction = 0.98 
+const friction = 0.98  // controls friction of particles
   class Particle {
     constructor(x, y, radius, color, velocity){
     this.x = x
