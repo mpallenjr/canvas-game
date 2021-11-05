@@ -153,7 +153,7 @@ projectile.y - enemy.y)
 // when projectiles touch enemy
 if (dist - enemy.radius - projectile.radius < 1) 
   {
-  if (enemy.radius > 10) {
+  if (enemy.radius - 10 > 10) {
     enemy.radius -= 10
     setTimeout(() => {
       projectiles.splice(projectileIndex, 1)
