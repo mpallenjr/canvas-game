@@ -9,7 +9,8 @@ canvas.height = innerHeight
 
 
 const scoreEl = document.querySelector('#scoreEl')
-console.log(scoreEl) // !!!!!!!!!!
+const startGameButton = document.querySelector('#startGameButton')
+const uiEl = document.querySelector('#uiEl')
 
 class Player {
 
@@ -251,11 +252,15 @@ addEventListener('click', (event) => {
     y: Math.sin(angle) * 4
   }
  projectiles.push(new Projectile(
-   canvas.width / 2, canvas.height / 2, 5, 'white', velocity
- ))
-    
-    }
-)
+   canvas.width / 2, canvas.height / 2, 5, 'white', velocity)
+   )
+  })
 
-animate() 
-spawnEnemies()
+  startGameButton.addEventListener('click',() =>{
+    animate() 
+    spawnEnemies()
+uiEl.style.display = 'none'
+
+  }
+  
+  )
