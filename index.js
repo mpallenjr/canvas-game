@@ -2,8 +2,14 @@
 const canvas = document.querySelector('canvas');
 const c = canvas.getContext('2d')
 
+
 canvas.width = innerWidth
 canvas.height = innerHeight
+
+
+
+const scoreEl = document.querySelector('#scoreEl')
+console.log(scoreEl) // !!!!!!!!!!
 
 class Player {
 
@@ -146,6 +152,7 @@ function spawnEnemies() {
   }
 
 let animationId
+let score = 0
 
 function animate() {
   animationId = requestAnimationFrame(animate)
@@ -194,11 +201,25 @@ projectile.y - enemy.y)
 
 // when projectiles touch enemy
 if (dist - enemy.radius - projectile.radius < 1) 
-  { // where particles will go
+  { 
+    
+    
+
+
+    
+    
+    
+    
+    
+    // where particles will go
     for (let i = 0; i < enemy.radius * 2; i++) {
       particles.push(new Particle(projectile.x, projectile.y, Math.random() * 2, enemy.color, {x: (Math.random() - 0.5) * (Math.random() * 8), y: (Math.random() - 0.5) * (Math.random() * 8)}))
     }
   if (enemy.radius - 10 > 6) {
+        //increase score
+score += 100
+scoreEl.innerHTML = score
+
     gsap.to(enemy, {
       radius: enemy.radius - 10
     })
@@ -206,6 +227,9 @@ if (dist - enemy.radius - projectile.radius < 1)
       projectiles.splice(projectileIndex, 1)
     }, 0)
   } else {
+        //increase score
+score += 200
+scoreEl.innerHTML = score
     setTimeout(() => {
       enemies.splice(index, 1)
       projectiles.splice(projectileIndex, 1)
