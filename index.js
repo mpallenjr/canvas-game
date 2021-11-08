@@ -191,6 +191,7 @@ enemies.forEach((enemy, index) => {
   //end game
   if (dist - enemy.radius - player.radius < 1){
 cancelAnimationFrame(animationId)
+uiEl.style.display = 'flex'
   }
 
   projectiles.forEach((projectile, projectileIndex) => {
