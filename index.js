@@ -11,6 +11,7 @@ canvas.height = innerHeight
 const scoreEl = document.querySelector('#scoreEl')
 const startGameButton = document.querySelector('#startGameButton')
 const uiEl = document.querySelector('#uiEl')
+const bigScoreEl = document.querySelector('#bigScoreEl')
 
 class Player {
 
@@ -116,12 +117,22 @@ const friction = 0.98  // controls friction of particles
 
 const x = canvas.width / 2
 const y = canvas.height / 2
-const player = new Player(x, y, 12, 'white')
 
 
-const projectiles = []
-const enemies = []
-const particles = [] 
+let player = new Player(x, y, 12, 'white')
+let projectiles = []
+let enemies = []
+let particles = [] 
+
+function init() {
+   player = new Player(x, y, 12, 'white')
+   projectiles = []
+   enemies = []
+   particles = [] 
+  
+
+
+}
 
 function spawnEnemies() {
   setInterval(() => {
@@ -192,6 +203,7 @@ enemies.forEach((enemy, index) => {
   if (dist - enemy.radius - player.radius < 1){
 cancelAnimationFrame(animationId)
 uiEl.style.display = 'flex'
+bigScoreEl.innerHTML = score
   }
 
   projectiles.forEach((projectile, projectileIndex) => {
@@ -258,6 +270,7 @@ addEventListener('click', (event) => {
   })
 
   startGameButton.addEventListener('click',() =>{
+    init()
     animate() 
     spawnEnemies()
 uiEl.style.display = 'none'
