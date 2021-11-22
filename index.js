@@ -2,8 +2,8 @@
 const canvas = document.querySelector('canvas');
 const c = canvas.getContext('2d')
 
-// canvas.width = innerWidth 
-// canvas.height = innerHeight 
+canvas.width = innerWidth 
+canvas.height = innerHeight 
 
 
 const scoreEl = document.querySelector('#scoreEl')
@@ -222,11 +222,9 @@ if (dist - enemy.radius - projectile.radius < 1)
   { 
     
     
-
     var projectileImpact = new Audio("projectileImpact.wav");
 
-      projectileImpact.play();
-    
+    projectileImpact.play();
 
     
     
@@ -250,6 +248,9 @@ scoreEl.innerHTML = score
     }, 0)
   } else {
         //increase score
+        var deathSound = new Audio("enemyExplodes.wav");
+
+        deathSound.play();
 score += 200
 scoreEl.innerHTML = score
     setTimeout(() => {
@@ -283,7 +284,11 @@ addEventListener('click', (event) => {
     spawnEnemies()
 uiEl.style.display = 'none'
 
-  })
+  }
+  
+  )
+
+
 
   var audio = new Audio("fireProjectile.wav");
 
